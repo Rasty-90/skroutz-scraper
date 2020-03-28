@@ -9,5 +9,8 @@ def index():
 
 @app.route('/newProduct')
 def newProduct():
-    user = {'username': 'Anna'}
-    return render_template('newProduct.html', title='Home', user=user)
+    return render_template('newProduct.html', title='Διαχείριση προϊόντων')
+
+@app.route('/compare')
+def compare():
+    return render_template('compare.html', title='Σύγκριση τιμών')
