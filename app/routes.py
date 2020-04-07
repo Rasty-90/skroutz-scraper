@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template,request
 from app import app
 
 @app.route('/')
@@ -14,3 +14,9 @@ def newProduct():
 @app.route('/compare')
 def compare():
     return render_template('compare.html', title='Σύγκριση τιμών')
+
+@app.route('/newProduct', methods=['POST'])
+def my_form_post():
+    prName = request.form['prName']
+    skLink = request.form['skLink']
+    return (prName + " "+skLink)

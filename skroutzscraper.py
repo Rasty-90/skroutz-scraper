@@ -13,3 +13,5 @@ with open('productList.json','r', encoding='utf8') as json_file: #reads list of 
 for listing in productList:
     if listing["searchType"]=="single":
         print (singleSearch(shopOwner,listing))
+    else:
+        print(multipleSearch(shopOwner,listing))

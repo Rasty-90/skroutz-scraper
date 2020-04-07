@@ -1,13 +1,13 @@
 #
 #Use this scraper when scraping info from a specific product page
 #
-
 from bs4 import BeautifulSoup
 import requests
 import json
 
 def singleSearch(shopOwner,listing):
 
+    #gets url from product listing
     url = listing["link"]
     response=requests.get(url,timeout=10)
     content=BeautifulSoup(response.content,"html.parser")
@@ -20,6 +20,6 @@ def singleSearch(shopOwner,listing):
         products.append(productObject)
 
     if products[0]["shop"]!=shopOwner:
-        return ( " single : To προϊόν υπάρχει σε χαμηλότερη τιμή")
+        return ("single : To προϊόν υπάρχει σε χαμηλότερη τιμή")
     else:
-        return (" single : Έχουμε την καλύτερη τιμή")
+        return ("single : Έχουμε την καλύτερη τιμή")

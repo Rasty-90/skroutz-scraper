@@ -3,17 +3,19 @@
         <title>{{ title }}</title>
     </head>
     <body>
-        <label for="prName"> Όνομα προϊόντος:</label>
-        <input type="text" id="prName"><br>
-        <label for="skLink"> Link skroutz:</label>
-        <input type="text" id="skLink"><br>
+        <form method="POST">
+            <label for="prName"> Όνομα προϊόντος:</label>
+            <input type="text" name="prName" id="prName"><br>
+            <label for="skLink"> Link skroutz:</label>
+            <input type="text" name="skLink" id="skLink"><br>
 
-        <label> Τύπος εμφάνισης:</label><br>
-        <input type="radio" id="multipleSearch" name="searchType" value="multiple">
-        <label for="multipleSearch">Πολλαπλά προϊόντα στην αναζήτηση</label><br>
-        <input type="radio" id="insideSearch" name="searchType" value="single">
-        <label for="insideSearch">Ενιαία σελίδα προϊόντος</label><br>
-        <button>Προσθήκη προϊόντος</button>
+            <!-- <label> Τύπος εμφάνισης:</label><br>
+            <input type="radio" id="multipleSearch" name="searchType" value="multiple">
+            <label for="multipleSearch">Πολλαπλά προϊόντα στην αναζήτηση</label><br>
+            <input type="radio" id="insideSearch" name="searchType" value="single">
+            <label for="insideSearch">Ενιαία σελίδα προϊόντος</label><br> -->
+            <input type="submit">
+        </form>
 
     </body>
 </html>
