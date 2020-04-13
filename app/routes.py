@@ -1,6 +1,7 @@
 from flask import render_template,request
 from app import app
-import json
+import csv
+import pandas as pd
 
 @app.route('/')
 @app.route('/index')
@@ -14,9 +15,8 @@ def newProduct():
 
 @app.route('/compare')
 def compare():
-    with open('productList.json','r', encoding='utf8') as json_file: #reads list of products
-        data = json.load(json_file) 
-        productList = data
+    df = pd.read_csv ('listprod.csv', encoding='utf8')
+    productList=df.to_dict('records')
     return render_template('compare.html', title='Σύγκριση τιμών', productList=productList)
 
 @app.route('/newProduct', methods=['POST'])
@@ -24,4 +24,8 @@ def my_form_post():
     prName = request.form['prName']
     skLink = request.form['skLink']
     searchType=request.form['searchType']
-    return (prName+','+skLink+","+searchType)
+    fields=[prName,skLink,searchType]
+    with open('listprod.csv','a', newline='', encoding='utf8') as f:
+        writer = csv.writer(f)
+        writer.writerow(fields)
+    return 'ok'

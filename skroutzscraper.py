@@ -1,18 +1,17 @@
 from multipleSearchScrapper import multipleSearch
 from insideProductPageScrapper import singleSearch
+import pandas as pd
 
-import csv
 
 #static values
 shopOwner="Aquario" #your own shop/your client's shop
 
+#reading the file and converting it to Dict
+products = pd.read_csv('listprod.csv')
+productList =products.to_dict('records')
 
-with open('listprod.csv', newline='', encoding='utf8') as csvfile:
-    reader = csv.DictReader(csvfile)
-    productList = reader
-
-    for listing in productList:
-        if listing["searchType"]=="single":
-            print (singleSearch(shopOwner,listing))
-        else:
-            print(multipleSearch(shopOwner,listing))
+for listing in productList:
+    if listing["searchType"]=="single":
+        print (singleSearch(shopOwner,listing))
+    else:
+        print(multipleSearch(shopOwner,listing))
