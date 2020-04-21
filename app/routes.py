@@ -1,7 +1,9 @@
 from flask import render_template,request
+from multipleSearchScrapper import multipleSearch
 from app import app
 import csv
 import pandas as pd
+
 
 @app.route('/')
 @app.route('/index')
@@ -17,7 +19,14 @@ def newProduct():
 def compare():
     df = pd.read_csv ('listprod.csv', encoding='utf8')
     productList=df.to_dict('records')
-    return render_template('compare.html', title='Σύγκριση τιμών', productList=productList)
+    results=[]
+    for res in productList:
+        showedRes = {
+            "name": res["product"],
+            "result": multipleSearch("Aquario",res)
+        }
+        results.append(showedRes)
+    return render_template('compare.html', title='Σύγκριση τιμών', productList=results)
 
 @app.route('/newProduct', methods=['POST'])
 def my_form_post():
@@ -29,3 +38,5 @@ def my_form_post():
         writer = csv.writer(f)
         writer.writerow(fields)
     return 'ok'
+
+
