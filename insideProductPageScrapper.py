@@ -14,12 +14,13 @@ def singleSearch(shopOwner,listing):
     products = []
 
     for product in content.findAll('li', attrs={"class":"cf card js-product-card"}):
+
         productObject = {
             "shop": product.find('div', attrs={"class": "shop-name"}).text.encode('utf-8').decode('utf-8'),
         }
         products.append(productObject)
 
     if products[0]["shop"]!=shopOwner:
-        return ("single : To προϊόν υπάρχει σε χαμηλότερη τιμή")
+        return (" To προϊόν υπάρχει σε χαμηλότερη τιμή")
     else:
-        return ("single : Έχουμε την καλύτερη τιμή")
+        return (" Έχουμε την καλύτερη τιμή")

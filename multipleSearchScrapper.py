@@ -21,6 +21,6 @@ def multipleSearch(shopOwner,listing):
         products.append(productObject)
 
     if products[0]["shop"]!=shopOwner:
-        return ("mutliple : To προϊόν υπάρχει σε χαμηλότερη τιμή") #returns that shop is NOT the first on the listings
+        return (" To προϊόν υπάρχει σε χαμηλότερη τιμή") #returns that shop is NOT the first on the listings
     else:
-        return ("mutliple : Έχουμε την καλύτερη τιμή") #returns that shop is the first on the listings
+        return (" Έχουμε την καλύτερη τιμή") #returns that shop is the first on the listings
