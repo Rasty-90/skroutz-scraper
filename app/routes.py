@@ -17,7 +17,7 @@ def newProduct():
 
 @app.route('/compare')
 def compare():
-    df = pd.read_csv ('listprod.csv', encoding='utf8')
+    df = pd.read_csv ('listprod-test.csv', encoding='utf8')
     productList=df.to_dict('records')
     results=[]
     for res in productList:
