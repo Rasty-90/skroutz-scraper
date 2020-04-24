@@ -16,6 +16,7 @@ def singleSearch(shopOwner,listing):
     for product in content.findAll('li', attrs={"class":"cf card js-product-card"}):
 
         productObject = {
+            #TODO:change div scraping, current one doesnt work due to the div being created dunamically
             "shop": product.find('div', attrs={"class": "shop-name"}).text.encode('utf-8').decode('utf-8'),
         }
         products.append(productObject)
