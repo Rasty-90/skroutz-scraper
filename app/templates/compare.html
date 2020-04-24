@@ -3,8 +3,21 @@
         <title>{{ title }}</title>
     </head>
     <body>
-        {% for product in productList %}
-        <div><p>{{ product.name}}<b>{{ product.result}}</b></p></div>
+        <p>Λίστα προϊόντων</p>
+        <table style="width:100%">
+            <tr>
+                <th>Προϊόν</th>
+                <th>Αποτέλεσμα</th>
+                <th></th>
+                <th></th>
+            </tr>
+            {% for product in productList %}
+            <tr>
+                <th>{{ product.name}}</th>
+                <th>{{ product.result}}</th>
+                <th><button>Επεξεργασία</button></th>
+                <th><button>Διαγραφή</button></th>
+            </tr>
         {% endfor %}
-    </body>
+        </table>
 </html>
