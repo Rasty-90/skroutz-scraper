@@ -1,10 +1,11 @@
 <html>
     <head>
         <title>{{ title }}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     </head>
     <body>
         <p>Λίστα προϊόντων</p>
-        <table style="width:100%">
+        <table class="comp-table" style="width:100%">
             <tr>
                 <th>Προϊόν</th>
                 <th>Αποτέλεσμα</th>
@@ -13,10 +14,10 @@
             </tr>
             {% for product in productList %}
             <tr>
-                <th>{{ product.name}}</th>
-                <th>{{ product.result}}</th>
-                <th><button>Επεξεργασία</button></th>
-                <th><button>Διαγραφή</button></th>
+                <td>{{ product.name}}</td>
+                <td>{{ product.result}}</td>
+                <td><button>Επεξεργασία</button></td>
+                <td><button>Διαγραφή</button></td>
             </tr>
         {% endfor %}
         </table>

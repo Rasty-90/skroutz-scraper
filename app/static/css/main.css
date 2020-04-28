@@ -1,0 +1,22 @@
+.comp-table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .comp-table td, .comp-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .comp-table tr:nth-child(even){background-color: #BADFE7;}
+  
+  .comp-table tr:hover {background-color: #ddd;}
+  
+  .comp-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #6FB3B8;
+    color: white;
+  }
